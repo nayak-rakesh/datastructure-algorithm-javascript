@@ -1,6 +1,6 @@
 # Data Structures & Algorithm
 
-* [Dynamic Programming](./dynamic_programming)
+* [Dynamic Programming](./dynamic-programming)
 
 
 #### For more comprehensive guide for interview
