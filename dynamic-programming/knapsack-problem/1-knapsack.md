@@ -103,7 +103,7 @@ if(n === 0 || W === 0) { // base condition
   return 0;
 }
 ```
-* This means if capacity is zero or the length of the array is zero(i.e no elements in array), the max profit would always be zero. So the initialization would be 
+* This means if capacity of sack is zero or the length of the array is zero(i.e no elements in array), the max profit would always be zero. So the initialization would be 
 
  n/W| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|
 ----|--|--|--|--|--|--|--|--|--|--|--|
@@ -112,3 +112,16 @@ if(n === 0 || W === 0) { // base condition
   2 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
   3 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
   4 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+* Code for top-down matrix(iterative method):-
+```js
+for(let i = 0; i <= wt.length; i++) { // base condition in recursive function to top-down
+        for(let j = 0; j <= W; j++) {
+            if(i === 0 || j === 0) {
+                t[i][j] = 0
+            }
+        }
+    }
+```
+* To convert recursive calls to top-down, we have to replace `knapsack()` with `t`.Here `i` represents length of array and `j` represents capacity of the sack.
+* As we have initialized the matrix, so we have to consider next elements. 
+```js
