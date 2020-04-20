@@ -30,7 +30,7 @@ So from above deduction we can say that it can be solved by dynamic programming.
 * Let's say the function named `knapsack` would return the maximum value(profit) which would take input weight array(`wt[]`), value array(`val[]`), total capacity of the sack(`W`) and length of the first two arrays(`n`).
 * When writing recursive function we first have to think about base condition.We can evaluate base condition by thinking about the smallest valid input(input should be valid)
 * In the above case we can pass zero for the capacity of the sack(`W`) and also for the length of the array(`n`).
-* If we have a sack which have capacity of zero or we have arrays without any item in it, for either of the cases we will get maximum value(profit) of zero So we can write 
+* If we have a sack which have capacity of zero or we have arrays without any item in it, for either of the cases we will get maximum value(profit) of zero, so we can write 
 ```js
 if(W === 0 || n === 0) {
     return 0;
@@ -57,7 +57,7 @@ if(wt[i] > W) {
 * In the above problem we are calling `knapsack()` function recursively with minimized input. From the inputs we have to find out which arguments are getting changed during the recursive call.In this case, the capacity(`W`) and length of array(`n`).
 * So we have to make a 2 dimensional array dimension `W+1 x n+1`. This is because we also have to check for capacity(`W`) becomes zero and also if length of array becomes zero. Let's call the array `t` with elements initialized to -1.(x axis represent capacity `W` and y axis represents length of array `n`)
 
- W/n|0 |1 | 2| 3| 4| 5| 6| 7| 8| 9|10|
+ n/W|0 |1 | 2| 3| 4| 5| 6| 7| 8| 9|10|
 ----|--|--|--|--|--|--|--|--|--|--|--|
   0 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
   1 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
@@ -76,3 +76,39 @@ t = [
 ];
 ```
 * We will check if the cell contains any value other than -1. If yes we will return the value without calling recursive function else we will store the value and then we will return the the value.
+#### Analysis For Top-Down Approach
+* In top-down approach we don't use use recursive function at all, but to solve in top-down method we should write the recursive function first.
+* After writing recursive solution we can easily convert it to top-down matrix.
+* To solve in top-down approach, we first draw a matrix of dimension `n+1 x W+1`(same as in memoization). Let's call the matrix `t`.
+* Then we initialize the matrix
+* Then instead of using recursive function we use iteration method.
+
+ n/W|0 |1 | 2| 3| 4| 5| 6| 7| 8| 9|10|
+----|--|--|--|--|--|--|--|--|--|--|--|
+  0 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  1 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  2 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  3 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  4 |-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+
+* As we need to store the max profit when length is zero and capacity is zero all the way up to when length is 4 and capacity is 10, that's the reason we have to use the matrix of dimension `n+1 x W+1`.
+* We have taken `n` in y axis(let's call it `i`(0 to 4)) and `W` in x axis(let's call it `j`(0 to 10)).
+* Let's think about the cell where `i = 2` and `j = 4`. The value in the cell represent the max value(profit) when length is 2(i.e only first two elements are present) and weight is 4 units. So the inputs for the above condition would be `wt = [3, 2], val = [2, 4], W = 4`.
+* Cell where `i = 4` and `j = 10` represents the the answer to the given problem. 
+* So essentially we are dividing the big problem into small problems, gradually solving small problems and adding the answer to solve the big problem.
+**Steps To Solve**
+* First we have to initialize the matrix form the base condition of the recursive function.
+```js
+if(n === 0 || W === 0) { // base condition
+  return 0;
+}
+```
+* This means if capacity is zero or the length of the array is zero(i.e no elements in array), the max profit would always be zero. So the initialization would be 
+
+ n/W| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|
+----|--|--|--|--|--|--|--|--|--|--|--|
+  0 | 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0|
+  1 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  2 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  3 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
+  4 | 0|-1|-1|-1|-1|-1|-1|-1|-1|-1|-1|
