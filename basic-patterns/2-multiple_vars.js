@@ -1,4 +1,4 @@
-/*
+/* Question
 Write a function which takes a sorted array as it's parameter and returns the first pair which
 sums to zero else undefined
 let array = [-3, -2, -1, 0, 1, 2] // returns [-2, 2]
@@ -27,7 +27,7 @@ console.log(returnPair(array)); // returns [-2, 2]
 the array.
 */
 
-/*
+/* Question
 Write a function which takes a sorted array as it's parameter and returns an array with all the unique
 values(duplicates removed)
 let array = [-3, -2, -1, 0, 1, 2] // returns [-2, 2]
@@ -59,3 +59,27 @@ variable first(index of unique value) to point to it and comparing next values w
 Each time we get a unique value, we are pushing it to unique array and then we make first variable
 points to the same element. We are incrementing the second variable in each loop
 */
+
+/* Question
+Write a function which takes two strings as it's parameter and returns true if first string is a 
+substring of second string
+*/
+let str1 = 'lao';
+let str2 = 'hello';
+
+function isSubString(str1, str2) {
+    if(!str1.length) {
+        return true;
+    }
+
+    let i = 0, j = 0;
+
+    while(j < str2.length) {
+        if(str1[i] === str2[j]) i++;
+        if(i === str1.length - 1) return true;
+        j++;
+    }
+    return false
+}
+
+console.log(isSubString(str1, str2)); // false

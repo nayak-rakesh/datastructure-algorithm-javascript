@@ -1,5 +1,7 @@
 # Data Structures & Algorithm
 
+* [Basic Patterns](./basic-patterns)
+* [Recursion](./recursion)
 * [Dynamic Programming](./dynamic-programming)
 
 
