@@ -2,6 +2,8 @@
 
 * [Basic Patterns](./basic-patterns)
 * [Recursion](./recursion)
+* [Searching](./searching)
+* [Sorting](./sorting)
 * [Dynamic Programming](./dynamic-programming)
 
 
