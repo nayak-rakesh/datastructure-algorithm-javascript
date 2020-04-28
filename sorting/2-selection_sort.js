@@ -12,9 +12,9 @@ We would do the same for index 1, 2, etc...
 let array = [8, 2, 3, 4, 6]
 
 function selectionSort(array) {
-    for(i = 0; i < array.length; i++) {
+    for(let i = 0; i < array.length; i++) {
         let min = i;
-        for(j = i + 1; j < array.length; j++) {
+        for(let j = i + 1; j < array.length; j++) {
             if(array[min] > array[j]) {
                 min = j;
             }

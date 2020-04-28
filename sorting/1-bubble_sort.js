@@ -10,8 +10,8 @@ we compare up to element n-1(n is length of the array)
 let array = [8, 7, 2, 4, 3, 6];
 
 function bubbleSort(array) {
-    for(i = array.length - 1; i >= 0; i--) {
-        for(j = 0; j <= i; j++) {
+    for(let i = array.length - 1; i >= 0; i--) {
+        for(let j = 0; j <= i; j++) {
             if(array[j] > array[j + 1]) {
                 let temp = array[j];
                 array[j] = array[j + 1];
