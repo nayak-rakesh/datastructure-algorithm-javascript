@@ -4,6 +4,7 @@
 * [Recursion](./recursion)
 * [Searching](./searching)
 * [Sorting](./sorting)
+* [Linked List](./linked-list)
 * [Dynamic Programming](./dynamic-programming)
 
 
