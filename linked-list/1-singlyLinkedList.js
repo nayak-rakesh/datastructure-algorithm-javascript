@@ -132,6 +132,7 @@ class SinglyLinkedList {
     return true;
   }
 
+  // reverses the linked list in place
   reverse() {
     let current = this.head;
     this.head = this.tail;
